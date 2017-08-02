@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+	 <properties>
+	    <hudson.model.ParametersDefinitionProperty>
+	      <parameterDefinitions>
+	        <hudson.model.StringParameterDefinition>
+	          <name>qq</name>
+	          <description>qqq</description>
+	          <defaultValue>qqq</defaultValue>
+	        </hudson.model.StringParameterDefinition>
+	      </parameterDefinitions>
+	    </hudson.model.ParametersDefinitionProperty>
+	  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/bingyue/easy-springmvc-maven.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>
+      	echo &quot;hello world!&quot;;
+		M3_HOME=/Users/admin/Documents/tool/maven
+		PATH=$PATH:$M3_HOME/bin
+		JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
+		export M3_HOME;
+		export PATH;
+		export JAVA_HOME;
+		echo ${qq};
+		mvn clean install -U;
+	</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
